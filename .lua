@@ -1,18 +1,15 @@
---ppk
+-- Made by JackMcJagger15
 
-_G.print = true
+power = 500 -- change this to make it more or less powerful
 
---krlh
-
-while true do
-wait(1.0)
-if _G.print == true then
-print("Loop executado com sucesso")
-    local args = {
-    [1] = "wear",
-    [2] = 17472943028
-}
-
-game:GetService("ReplicatedStorage").RE:FindFirstChild("1Updat1eAvata1r"):FireServer(unpack(args))
-    end
-end
+game:GetService('RunService').Stepped:connect(function()
+game.Players.LocalPlayer.Character.Head.CanCollide = false
+game.Players.LocalPlayer.Character.UpperTorso.CanCollide = false
+game.Players.LocalPlayer.Character.LowerTorso.CanCollide = false
+game.Players.LocalPlayer.Character.HumanoidRootPart.CanCollide = false
+end)
+wait(.1)
+local bambam = Instance.new("BodyThrust")
+bambam.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+bambam.Force = Vector3.new(power,0,power)
+bambam.Location = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
